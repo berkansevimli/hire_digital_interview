@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:restaurant_reservation/first_question.dart/first_question.dart';
 import 'package:restaurant_reservation/models/customer.dart';
 import 'package:restaurant_reservation/provider/general_provider.dart';
 
@@ -23,7 +24,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     final provider = Provider.of<GeneralProvider>(context);
     return Scaffold(
-      appBar: AppBar(title: Text("Sign Up")),
+      appBar: AppBar(
+        title: Text("Sign Up"),
+        actions: [
+          TextButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (builder) => FirstQuestion()));
+              },
+              child: Text(
+                "First Question",
+                style: TextStyle(color: Colors.white),
+              ))
+        ],
+      ),
       body: SingleChildScrollView(
           child: Padding(
         padding: const EdgeInsets.all(16.0),

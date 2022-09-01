@@ -3,6 +3,8 @@ import 'package:restaurant_reservation/models/appointment.dart';
 import 'package:restaurant_reservation/models/customer.dart';
 import 'package:restaurant_reservation/screens/all_restaurants.dart';
 
+import '../models/restaurant.dart';
+
 class GeneralProvider extends ChangeNotifier {
   final List<Customer> _customers = [];
   List<Customer> get customers => _customers;
@@ -22,8 +24,10 @@ class GeneralProvider extends ChangeNotifier {
         (route) => false);
   }
 
-  void makeAppointment(Appointment appointment, Customer customer) {
+  void makeAppointment(
+      Appointment appointment, Customer customer, Restaurant restaurant) {
     customer.appointments.add(appointment);
+    restaurant.appointments!.add(appointment);
   }
 
   void signIn(String email, password) {}

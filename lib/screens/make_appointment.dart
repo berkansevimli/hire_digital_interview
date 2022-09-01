@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:restaurant_reservation/models/appointment.dart';
 import 'package:restaurant_reservation/models/customer.dart';
 import 'package:restaurant_reservation/models/restaurant.dart';
+import 'package:restaurant_reservation/provider/general_provider.dart';
 
 class MakeAppointment extends StatefulWidget {
   final Restaurant restaurant;
@@ -71,6 +73,7 @@ class _MakeAppointmentState extends State<MakeAppointment> {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<GeneralProvider>(context);
     return Scaffold(
       appBar: AppBar(title: Text("Select Time")),
       body: SingleChildScrollView(
@@ -121,6 +124,8 @@ class _MakeAppointmentState extends State<MakeAppointment> {
                                             .add(Duration(minutes: duration)),
                                         customerName:
                                             widget.customer.fullName!);
+                                    provider.makeAppointment(appointment,
+                                        widget.customer, widget.restaurant);
                                   },
                                   child: Text("Approve")),
                             ],
