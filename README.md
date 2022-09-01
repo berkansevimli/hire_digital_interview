@@ -3,7 +3,7 @@
 
 This project created for Hire Digital Interview
 
-Because of time limitation some features (Login, my appointments, restauran profile and details etc.) is not complated.
+Because of time limitation some features (Login, my appointments, restaurant details etc.) is not complated.
 
 # features 
 ### 1- SignUp - Save user infos ve State Management (Provider)
